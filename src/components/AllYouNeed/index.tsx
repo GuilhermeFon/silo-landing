@@ -1,12 +1,12 @@
-// import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import {Globe, Brush, BarChart, Search, PenTool} from "lucide-react";
 
-const AllYouNeed = () => {
+const ServicesSection = () => {
   return (
     <section
-      id="allyouneed"
-      aria-label="Seção de captação"
+      id="services"
+      aria-label="Seção de serviços"
       className="container mx-auto px-2 py-20 lg:py-20 text-center"
     >
       <h2 className="text-primary-reverse text-4xl font-bold mb-8">
@@ -14,120 +14,62 @@ const AllYouNeed = () => {
       </h2>
 
       {/* Container da grade */}
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {/* Card de Serviço 1 */}
-        <div className="bg-white flex flex-col justify-evenly border p-8 rounded-lg shadow-md h-full">
-          <h3 className="text-xl font-semibold mb-4">Serviço de Encanamento</h3>
-          <p className="text-foreground-light mb-4">
-            Soluções rápidas para vazamentos e instalações
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Criação de Sites */}
+        <div className="bg-primary-reverse flex flex-col items-center justify-evenly border p-8 rounded-lg shadow-md h-full">
+          <Globe className="w-12 h-12 mb-4" />
+          <h3 className="text-xl font-semibold mb-2">Criação de Sites</h3>
+          <p className="text-secondary text-center">
+            Landing pages, institucionais e e-commerce
           </p>
-          {/* <Image
-            src={EncanamentoIcon}
-            alt="Icone de Encanamento"
-            width={48}
-            height={48}
-            className="w-12 h-12 mx-auto mb-4"
-          /> */}
         </div>
 
-        {/* Card de Serviço 2 */}
-        <div className="bg-white flex flex-col justify-evenly border p-8 rounded-lg shadow-md h-full">
-          <h3 className="text-xl font-semibold mb-4">Serviços de Limpeza</h3>
-          <p className="text-foreground-light mb-4">
-            Limpeza detalhada de residências e comércios
+        {/* Identidade Visual */}
+        <div className="bg-primary-reverse flex flex-col items-center justify-evenly border p-8 rounded-lg shadow-md h-full">
+          <Brush className="w-12 h-12 mb-4" />
+          <h3 className="text-xl font-semibold mb-2">Identidade Visual</h3>
+          <p className="text-secondary text-center">
+            Logos, paleta de cores e design gráfico
           </p>
-          {/* <Image
-            src={FaxinaIcon}
-            alt="Icone de Limpeza"
-            width={48}
-            height={48}
-            className="w-12 h-12 mx-auto mb-4"
-          /> */}
         </div>
 
-        {/* Card de Serviço 3 */}
-        <div className="bg-white flex flex-col justify-evenly border p-8 rounded-lg shadow-md h-full">
-          <h3 className="text-xl font-semibold mb-4">Serviço de Pintura</h3>
-          <p className="text-foreground-light mb-4">
-            Transforme seu ambiente com pintura profissional
+        {/* Gestão de Tráfego Pago */}
+        <div className="bg-primary-reverse flex flex-col items-center justify-evenly border p-8 rounded-lg shadow-md h-full">
+          <BarChart className="w-12 h-12 mb-4" />
+          <h3 className="text-xl font-semibold mb-2">Gestão de Tráfego Pago</h3>
+          <p className="text-secondary text-center">
+            Anúncios no Google, Meta Ads e mais
           </p>
-          {/* <Image
-            src={PinturaIcon}
-            alt="Icone de Pintura"
-            width={48}
-            height={48}
-            className="w-12 h-12 mx-auto mb-4"
-          /> */}
         </div>
 
-        {/* Card de Serviço 4 */}
-        <div className="bg-white flex flex-col justify-evenly border p-8 rounded-lg shadow-md h-full">
-          <h3 className="text-xl font-semibold mb-4">Serviço de Eletrecista</h3>
-          <p className="text-foreground-light mb-4">
-            Instalações e reparos elétricos seguros
+        {/* SEO e Otimização */}
+        <div className="bg-primary-reverse flex flex-col items-center justify-evenly border p-8 rounded-lg shadow-md h-full">
+          <Search className="w-12 h-12 mb-4" />
+          <h3 className="text-xl font-semibold mb-2">SEO e Otimização</h3>
+          <p className="text-secondary text-center">
+            Melhorando o ranking no Google
           </p>
-          {/* <Image
-            src={EletricistaIcon}
-            alt="Icone de eletrecista"
-            width={48}
-            height={48}
-            className="w-12 h-12 mx-auto mb-4"
-          /> */}
         </div>
 
-        {/* Card de Serviço 5 */}
-        <div className="bg-white flex flex-col justify-evenly border p-8 rounded-lg shadow-md h-full">
-          <h3 className="text-xl font-semibold mb-4">Serviço de Marceneiro</h3>
-          <p className="text-foreground-light mb-4">
-            Móveis sob medida e reparos em madeira
+        {/* Marketing de Conteúdo */}
+        <div className="bg-primary-reverse flex flex-col items-center justify-evenly border p-8 rounded-lg shadow-md h-full">
+          <PenTool className="w-12 h-12 mb-4" />
+          <h3 className="text-xl font-semibold mb-2">Marketing de Conteúdo</h3>
+          <p className="text-secondary text-center">
+            Textos, blogs e e-mail marketing
           </p>
-          {/* <Image
-            src={MarceneiroIcon}
-            alt="Icone de Manutenção"
-            width={48}
-            height={48}
-            className="w-12 h-12 mx-auto mb-4"
-          /> */}
         </div>
 
-        {/* Card de Serviço 6 */}
-        <div className="bg-white flex flex-col justify-evenly border p-8 rounded-lg shadow-md h-full">
-          <h3 className="text-xl font-semibold mb-4">Serviço de Jardinagem</h3>
-          <p className="text-foreground-light mb-4">Deixe seu jardim sempre bonito</p>
-          {/* <Image
-            src={JardinagemIcon}
-            alt="Icone de Manutenção"
-            width={56}
-            height={56}
-            className="w-14 h-14 mx-auto mb-4"
-          /> */}
-        </div>
-
-        {/* Card de Serviço 7 */}
-        <div className="bg-white flex flex-col justify-evenly border p-8 rounded-lg shadow-md h-full">
-          <h3 className="text-xl font-semibold mb-4">Serviço de Manutenção</h3>
-          <p className="text-foreground-light mb-4">
-            Reparos gerais e para sua casa ou empresa
-          </p>
-          {/* <Image
-            src={FerramentasIcon}
-            alt="Icone de Manutenção"
-            width={48}
-            height={48}
-            className="w-12 h-12 mx-auto mb-4"
-          /> */}
-        </div>
-
-        {/* Card especial */}
-        <div className="border p-8 rounded-lg flex flex-col justify-evenly bg-yellow-500 text-white shadow-md h-full">
+        {/* Card Especial */}
+        <div className="border p-8 rounded-lg flex flex-col justify-evenly text-white shadow-md h-full">
           <h3 className="text-xl font-semibold mb-4">
-            Não perca tempo! Encontre quem entende do assunto!
+            Transforme as ideias da sua empresa em resultados! Trabalhe com especialistas.
           </h3>
           <Link
-            href="/servicos"
-            className="bg-[#1D69B7] py-2 px-6 rounded-lg hover:bg-[#082D53] transition-colors"
+            href="/"
+            className="bg-primary-reverse hover:bg-foreground-light text-foreground py-2 px-6 rounded-lg font-semibold transform transition-colors duration-300"
           >
-            Encontre um profissional
+            Conecte-se com nossos especialistas
           </Link>
         </div>
       </div>
@@ -135,4 +77,4 @@ const AllYouNeed = () => {
   );
 };
 
-export default AllYouNeed;
+export default ServicesSection;
