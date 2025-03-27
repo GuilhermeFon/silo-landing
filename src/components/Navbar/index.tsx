@@ -6,10 +6,11 @@ import Link from "next/link";
 import {usePathname} from "next/navigation";
 import {Button} from "@/components/ui/button";
 import {useTheme} from "next-themes";
+import Image from "next/image";
 import Silo from "@/assets/silo-logo.svg";
 import {cn} from "@/lib/utils";
 
-export function Navbar() {
+const Navbar = () => {
   const pathname = usePathname();
   const {theme, setTheme} = useTheme();
   const [showNavbar, setShowNavbar] = useState(false);
@@ -38,7 +39,7 @@ export function Navbar() {
     >
       <div className="flex items-center gap-6 px-6 py-3">
         <Link href="/" className="text-xl font-bold">
-          <Silo className="logo-style" />
+          <Image src={Silo} alt="Silo Logo" className="logo-style" />
         </Link>
 
         <Link
@@ -78,4 +79,6 @@ export function Navbar() {
       </div>
     </nav>
   );
-}
+};
+
+export default Navbar;
