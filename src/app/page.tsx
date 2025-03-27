@@ -1,11 +1,13 @@
 import Hero from "@/components/Hero";
-import AllYouNeed from "@/components/AllYouNeed"
+import Services from "@/components/Services";
+import Compromisse from "@/components/Compromisse";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <AllYouNeed />
+      <Services />
+      <Compromisse />
     </>
   );
 }

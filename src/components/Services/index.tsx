@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+
 import {Globe, Brush, BarChart, Search, PenTool} from "lucide-react";
 
 const ServicesSection = () => {
@@ -7,7 +7,7 @@ const ServicesSection = () => {
     <section
       id="services"
       aria-label="Seção de serviços"
-      className="container mx-auto px-2 py-20 lg:py-20 text-center"
+      className="container mx-auto px-4 py-10 lg:py-20 text-center"
     >
       <h2 className="text-primary-reverse text-4xl font-bold mb-8">
         Tudo o que você precisa, em um só lugar!
