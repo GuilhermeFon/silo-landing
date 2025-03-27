@@ -1,61 +1,80 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
+import {useEffect, useState} from "react";
+import {Moon, Sun} from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Button } from "../ui/button";
-import { useTheme } from "next-themes";
-import { translations } from "@/lib/i18n";
+import {usePathname} from "next/navigation";
+import {Button} from "@/components/ui/button";
+import {useTheme} from "next-themes";
+import Silo from "@/assets/silo-logo.svg";
+import {cn} from "@/lib/utils";
 
-export function Navbar({ lang, setLang }: { lang: "en" | "pt", setLang: (lang: "en" | "pt") => void }) {
+export function Navbar() {
   const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
-  const t = translations[lang];
+  const {theme, setTheme} = useTheme();
+  const [showNavbar, setShowNavbar] = useState(false);
+
+  useEffect(() => {
+    if (pathname === "/") {
+      const handleScroll = () => {
+        setShowNavbar(window.scrollY > window.innerHeight / 1.8);
+      };
+
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    } else {
+      setShowNavbar(true);
+    }
+  }, [pathname]);
 
   return (
-    <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-sm border-b">
-      <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
-          <Link href="/" className="text-xl font-bold">
-            Digital Agency
-          </Link>
-          
-          <div className="flex items-center gap-6">
-            <Link 
-              href="/" 
-              className={pathname === "/" ? "text-primary" : "text-foreground hover:text-primary transition-colors"}
-            >
-              {t.nav.home}
-            </Link>
-            <Link 
-              href="/about" 
-              className={pathname === "/about" ? "text-primary" : "text-foreground hover:text-primary transition-colors"}
-            >
-              {t.nav.about}
-            </Link>
-            
-            <select 
-              value={lang}
-              onChange={(e) => setLang(e.target.value as "en" | "pt")}
-              className="bg-transparent border-none focus:outline-none"
-            >
-              <option value="pt">PT</option>
-              <option value="en">EN</option>
-            </select>
-            
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            >
-              {theme === "dark" ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
-            </Button>
-          </div>
-        </div>
+    <nav
+      className={cn(
+        "fixed top-4 left-1/2 transform -translate-x-1/2 z-50 bg-background/80 backdrop-blur-md border rounded-xl shadow-lg transition-all duration-300",
+        showNavbar
+          ? "opacity-100 visible transition-opacity transition-600"
+          : "opacity-0 invisible transition-opacity transition-300"
+      )}
+    >
+      <div className="flex items-center gap-6 px-6 py-3">
+        <Link href="/" className="text-xl font-bold">
+          <Silo className="logo-style" />
+        </Link>
+
+        <Link
+          href="/"
+          className={cn(
+            "text-sm font-medium transition-colors",
+            pathname === "/"
+              ? "text-primary"
+              : "text-foreground hover:text-primary"
+          )}
+        >
+          Início
+        </Link>
+        <Link
+          href="/about"
+          className={cn(
+            "text-sm font-medium transition-colors",
+            pathname === "/about"
+              ? "text-primary"
+              : "text-foreground hover:text-primary"
+          )}
+        >
+          Sobre
+        </Link>
+
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+        >
+          {theme === "dark" ? (
+            <Sun className="h-5 w-5" />
+          ) : (
+            <Moon className="h-5 w-5" />
+          )}
+        </Button>
       </div>
     </nav>
   );

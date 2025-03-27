@@ -1,80 +1,91 @@
-import Link from "next/link";
+import {
+  Globe,
+  ShoppingBag,
+  Smartphone,
+  BarChart,
+  Palette,
+  Search,
+  FileText,
+  Rocket,
+} from "lucide-react";
 
-import {Globe, Brush, BarChart, Search, PenTool} from "lucide-react";
+const Services = () => {
+  const services = [
+    {
+      icon: <Globe className="h-8 w-8 text-primary" />,
+      title: "Sites",
+      description:
+        "Sites personalizados que refletem sua marca e geram resultados",
+    },
+    {
+      icon: <ShoppingBag className="h-8 w-8 text-primary" />,
+      title: "E-commerce",
+      description:
+        "Lojas online poderosas que convertem visitantes em clientes",
+    },
+    {
+      icon: <Smartphone className="h-8 w-8 text-primary" />,
+      title: "Landing Pages",
+      description:
+        "Landing pages de alta conversão projetadas para suas campanhas",
+    },
+    {
+      icon: <BarChart className="h-8 w-8 text-primary" />,
+      title: "Gestão de Tráfego",
+      description:
+        "Estratégias personalizadas para atrair o público certo para seu negócio",
+    },
+    {
+      icon: <Palette className="h-8 w-8 text-primary" />,
+      title: "Identidade Visual",
+      description:
+        "Design de marca que comunica seus valores e conecta com seu público",
+    },
+    {
+      icon: <Search className="h-8 w-8 text-primary" />,
+      title: "SEO e Otimização",
+      description:
+        "Melhore seu ranking nos buscadores e aumente sua visibilidade online",
+    },
+    {
+      icon: <FileText className="h-8 w-8 text-primary" />,
+      title: "Marketing de Conteúdo",
+      description:
+        "Conteúdo estratégico que engaja seu público e fortalece sua autoridade",
+    },
+    {
+      icon: <Rocket className="h-8 w-8 text-primary" />,
+      title: "Consultoria de Transformação Digital",
+      description:
+        "Planejamento avançado e tecnologias inovadoras para acelerar o crescimento do seu negócio",
+    },
+  ];
 
-const ServicesSection = () => {
   return (
     <section
       id="services"
       aria-label="Seção de serviços"
-      className="container mx-auto px-4 py-10 lg:py-20 text-center"
+      className=" mx-auto px-4 py-10 lg:py-20 text-center bg-muted/30"
     >
-      <h2 className="text-primary-reverse text-4xl font-bold mb-8">
-        Tudo o que você precisa, em um só lugar!
-      </h2>
-
-      {/* Container da grade */}
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {/* Criação de Sites */}
-        <div className="bg-primary-reverse flex flex-col items-center justify-evenly border p-8 rounded-lg shadow-md h-full">
-          <Globe className="w-12 h-12 mb-4" />
-          <h3 className="text-xl font-semibold mb-2">Criação de Sites</h3>
-          <p className="text-secondary text-center">
-            Landing pages, institucionais e e-commerce
-          </p>
-        </div>
-
-        {/* Identidade Visual */}
-        <div className="bg-primary-reverse flex flex-col items-center justify-evenly border p-8 rounded-lg shadow-md h-full">
-          <Brush className="w-12 h-12 mb-4" />
-          <h3 className="text-xl font-semibold mb-2">Identidade Visual</h3>
-          <p className="text-secondary text-center">
-            Logos, paleta de cores e design gráfico
-          </p>
-        </div>
-
-        {/* Gestão de Tráfego Pago */}
-        <div className="bg-primary-reverse flex flex-col items-center justify-evenly border p-8 rounded-lg shadow-md h-full">
-          <BarChart className="w-12 h-12 mb-4" />
-          <h3 className="text-xl font-semibold mb-2">Gestão de Tráfego Pago</h3>
-          <p className="text-secondary text-center">
-            Anúncios no Google, Meta Ads e mais
-          </p>
-        </div>
-
-        {/* SEO e Otimização */}
-        <div className="bg-primary-reverse flex flex-col items-center justify-evenly border p-8 rounded-lg shadow-md h-full">
-          <Search className="w-12 h-12 mb-4" />
-          <h3 className="text-xl font-semibold mb-2">SEO e Otimização</h3>
-          <p className="text-secondary text-center">
-            Melhorando o ranking no Google
-          </p>
-        </div>
-
-        {/* Marketing de Conteúdo */}
-        <div className="bg-primary-reverse flex flex-col items-center justify-evenly border p-8 rounded-lg shadow-md h-full">
-          <PenTool className="w-12 h-12 mb-4" />
-          <h3 className="text-xl font-semibold mb-2">Marketing de Conteúdo</h3>
-          <p className="text-secondary text-center">
-            Textos, blogs e e-mail marketing
-          </p>
-        </div>
-
-        {/* Card Especial */}
-        <div className="border p-8 rounded-lg flex flex-col justify-evenly text-white shadow-md h-full">
-          <h3 className="text-xl font-semibold mb-4">
-            Transforme as ideias da sua empresa em resultados! Trabalhe com especialistas.
-          </h3>
-          <Link
-            href="/"
-            className="bg-primary-reverse hover:bg-foreground-light text-foreground py-2 px-6 rounded-lg font-semibold transform transition-colors duration-300"
-          >
-            Conecte-se com nossos especialistas
-          </Link>
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center mb-16">
+          Nossos Serviços
+        </h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {services.map((service, index) => (
+            <div
+              key={index}
+              className="bg-card p-8 rounded-lg hover:shadow-lg transition-shadow flex flex-col items-center"
+            >
+              <div className="mb-4">{service.icon}</div>
+              <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
+              <p className="text-muted-foreground">{service.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
 };
 
-export default ServicesSection;
+export default Services;
