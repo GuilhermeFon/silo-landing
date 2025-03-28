@@ -6,7 +6,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-background/95 z-0" />
 
       {/* Animated Logo */}
-      <div className="flex items-center justify-center z-10 opacity-100 min-h-[80vh] md:h-[55vh] px-6">
+      <div className="flex items-center justify-center z-10 min-h-[80vh] sm:h-[55vh] px-6 sm:px-20">
         <svg
           width="100%"
           height="auto"

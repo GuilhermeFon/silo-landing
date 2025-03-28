@@ -15,23 +15,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'growsolar-api.hox.dev.br',
-      },
-      {
-        protocol: 'https',
-        hostname: 's3.sa-east-1.amazonaws.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'growsolar-assets.s3.sa-east-1.amazonaws.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'placehold.co',
-      },
-      {
-        protocol: 'https',
-        hostname: 'growsolar-blog.hox.dev.br',
+        hostname: 'images.unsplash.com',
       },
     ],
   },
