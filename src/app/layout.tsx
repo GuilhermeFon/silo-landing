@@ -7,9 +7,31 @@ import Providers from './providers';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Digital Production Agency | Transformando Presença Digital',
+  title: 'SILO Agência de Produção Digital | Transformando Presença Digital',
   description:
     'Criamos experiências digitais excepcionais incluindo websites, plataformas e-commerce e landing pages de alta conversão.',
+  icons: [
+    {
+      rel: 'icon',
+      type: 'image/png',
+      url: '/favicon-96x96.png',
+      sizes: '96x96',
+    },
+    {
+      rel: 'icon',
+      type: 'image/svg+xml',
+      url: '/favicon.svg',
+    },
+    {
+      rel: 'shortcut icon',
+      url: '/favicon.ico',
+    },
+    {
+      rel: 'apple-touch-icon',
+      sizes: '180x180',
+      url: '/apple-touch-icon.png',
+    },
+  ],
 };
 
 export default function RootLayout({
