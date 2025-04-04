@@ -1,9 +1,9 @@
-"use client";
-import {useState} from "react";
+'use client';
+import { useState } from 'react';
 
-import {Button} from "../../ui/button";
-import {Input} from "../../ui/input";
-import {Textarea} from "../../ui/textarea";
+import { Button } from '../../ui/button';
+import { Input } from '../../ui/input';
+import { Textarea } from '../../ui/textarea';
 
 const Form = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -15,11 +15,11 @@ const Form = () => {
     const formData = new FormData(form);
 
     try {
-      const response = await fetch("https://formspree.io/f/xblgaloy", {
-        method: "POST",
+      const response = await fetch('https://formspree.io/f/xblgaloy', {
+        method: 'POST',
         body: formData,
         headers: {
-          Accept: "application/json",
+          Accept: 'application/json',
         },
       });
 
@@ -28,10 +28,10 @@ const Form = () => {
         form.reset();
         setTimeout(() => setIsSubmitted(false), 3000);
       } else {
-        alert("Erro ao enviar o formulário. Tente novamente.");
+        alert('Erro ao enviar o formulário. Tente novamente.');
       }
     } catch {
-      alert("Erro ao enviar o formulário. Tente novamente.");
+      alert('Erro ao enviar o formulário. Tente novamente.');
     }
   };
 
@@ -40,7 +40,7 @@ const Form = () => {
       {!isVisible ? (
         <Button
           onClick={() => setIsVisible(true)}
-          className="w-full cursor-pointer"
+          className="px-6 py-3 min-h-16 rounded-xl text-xl font-semibold cursor-pointer backdrop-blur-md"
         >
           Entre em Contato
         </Button>
@@ -55,7 +55,7 @@ const Form = () => {
             className="min-h-[100px]"
           />
           <Button type="submit" className="w-full cursor-pointer">
-            {isSubmitted ? "Mensagem enviada com sucesso!" : "Enviar Mensagem"}
+            {isSubmitted ? 'Mensagem enviada com sucesso!' : 'Enviar Mensagem'}
           </Button>
         </form>
       )}
