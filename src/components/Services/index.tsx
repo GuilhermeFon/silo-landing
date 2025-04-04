@@ -9,6 +9,8 @@ import {
   Rocket,
 } from 'lucide-react';
 
+import SpotlightCard from '../SpotlightCard/SpotlightCard';
+
 const Services = () => {
   const services = [
     {
@@ -73,14 +75,14 @@ const Services = () => {
         </h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <div
+            <SpotlightCard
               key={index}
-              className="bg-card p-8 rounded-lg hover:shadow-lg transition-shadow flex flex-col items-center"
+              className="p-8 rounded-lg hover:shadow-lg transition-shadow flex flex-col items-center"
             >
               <div className="mb-4">{service.icon}</div>
               <h3 className="text-xl font-semibold mb-3">{service.title}</h3>
               <p className="text-muted-foreground">{service.description}</p>
-            </div>
+            </SpotlightCard>
           ))}
         </div>
       </div>

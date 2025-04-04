@@ -1,4 +1,4 @@
-import {Lightbulb, Target, Trophy} from "lucide-react";
+import { Lightbulb, Target, Trophy } from 'lucide-react';
 
 const AboutSection = () => {
   return (
@@ -22,17 +22,17 @@ const AboutSection = () => {
         <div>
           <h2 className="text-2xl font-semibold mb-6">Nossos Valores</h2>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-card p-6 rounded-lg">
-              <Lightbulb className="h-8 w-8 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Inovação</h3>
+            <div className="bg-card flex items-center gap-2 p-6 rounded-lg">
+              <Lightbulb className="h-8 w-8 text-primary" />
+              <h3 className="text-xl font-semibold">Inovação</h3>
             </div>
-            <div className="bg-card p-6 rounded-lg">
-              <Trophy className="h-8 w-8 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Qualidade</h3>
+            <div className="bg-card flex items-center gap-2 p-6 rounded-lg">
+              <Trophy className="h-8 w-8 text-primary" />
+              <h3 className="text-xl font-semibold">Qualidade</h3>
             </div>
-            <div className="bg-card p-6 rounded-lg">
-              <Target className="h-8 w-8 text-primary mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Resultados</h3>
+            <div className="bg-card flex items-center gap-2 p-6 rounded-lg">
+              <Target className="h-8 w-8 text-primary" />
+              <h3 className="text-xl font-semibold">Resultados</h3>
             </div>
           </div>
         </div>
