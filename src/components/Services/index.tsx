@@ -35,7 +35,7 @@ const Services = () => {
       icon: <Rocket className="h-8 w-8 text-primary" />,
       title: 'Transformação Digital',
       description:
-        'Ajudo sua empresa a se posicionar no mercado.',
+        'Ajudamos sua empresa a se posicionar no mercado.',
     },
     {
       icon: <BarChart className="h-8 w-8 text-primary" />,
