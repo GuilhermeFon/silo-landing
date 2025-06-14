@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
-import { useEffect } from 'react'; 
+import Image, { StaticImageData } from 'next/image';
+import { useEffect } from 'react';
 
 interface ModalProps {
   isOpen: boolean;
@@ -8,7 +8,7 @@ interface ModalProps {
   caseData: {
     title: string;
     description: string;
-    image: string;
+    image: string | StaticImageData;
     longDescription?: string;
   } | null;
 }
@@ -42,10 +42,10 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, caseData }) => {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 50 }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-            className="bg-background rounded-xl shadow-xl p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto"
+            className="bg-background rounded-xl shadow-xl p-6 w-full max-w-3xl max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative w-full h-64 md:h-96 mb-6 rounded-xl overflow-hidden">
+            <div className="relative w-full h-64 md:h-130 mb-6 rounded-xl overflow-hidden">
               <Image
                 src={caseData.image}
                 alt={caseData.title}

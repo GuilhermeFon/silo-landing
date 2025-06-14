@@ -1,16 +1,21 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
-import { useState, useRef, useEffect, useMemo } from 'react'; // Adicionado useMemo
+import { MoveRight, MoveLeft } from 'lucide-react';
+import Image, { StaticImageData } from 'next/image';
+import { useState, useRef, useEffect, useMemo } from 'react';
 
+import BurguerCaseImage from '@/assets/images/burguer-case.png';
+import FinanceDashCaseImage from '@/assets/images/finance-dash-case.png';
+import GrowSolarCaseImage from '@/assets/images/grow-solar-case.png';
+import LkSneakersCaseImage from '@/assets/images/lk-sneakers-case.png';
+import MaoNaRodaCaseImage from '@/assets/images/mao-na-roda-case.png';
 import Modal from '@/components/Modal';
 
-// Defina o tipo para um case
 interface CaseItem {
   title: string;
   description: string;
-  image: string;
+  image: string | StaticImageData;
   longDescription?: string;
 }
 
@@ -18,45 +23,43 @@ const Cases = () => {
   const caseData = useMemo(
     () => [
       {
-        title: 'Plataforma E-commerce',
-        description: 'Varejista de moda viu aumento de 150% nas vendas online',
-        image:
-          'https://images.unsplash.com/photo-1491897554428-130a60dd4757?auto=format&fit=crop&w=800&q=80',
-        longDescription:
-          'Uma descrição muito mais detalhada sobre o case da plataforma de e-commerce, explicando os desafios, a solução implementada e os resultados alcançados em detalhes. Este texto pode ser bem longo e formatado com parágrafos.',
-      },
-      {
-        title: 'Site Corporativo',
-        description: 'Empresa de tecnologia alcançou 200% mais leads',
-        image:
-          'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
-        longDescription:
-          'Detalhes sobre o desenvolvimento do site corporativo, as tecnologias utilizadas, o processo de design e como isso impactou a geração de leads da empresa de tecnologia.',
-      },
-      {
-        title: 'Landing Page',
-        description: 'Startup SaaS aumentou taxa de conversão em 75%',
-        image:
-          'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=800&q=80',
-        longDescription:
-          'Explicação completa sobre a criação da landing page, incluindo a estratégia de copywriting, o design focado em conversão e as métricas que demonstram o aumento da taxa de conversão para a startup SaaS.',
-      },
-      {
-        title: 'Aplicativo Mobile',
-        description: 'Fintech melhorou engajamento em 120% com novo app',
-        image:
-          'https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80',
-        longDescription:
-          'Discussão aprofundada sobre o desenvolvimento do aplicativo mobile, desde a concepção da UX/UI até a implementação e o impacto nos KPIs da fintech.',
-      },
-      {
-        title: 'Sistema de Gestão',
+        title: 'LK Sneakers',
         description:
-          'Indústria otimizou processos em 60% com software customizado',
-        image:
-          'https://images.unsplash.com/photo-1580894732444-8ec53b89d8ef?auto=format&fit=crop&w=800&q=80',
+          'Landing page para uma loja de tênis com design moderno e atrativo.',
+        image: LkSneakersCaseImage,
         longDescription:
-          'Análise do sistema de gestão desenvolvido sob medida para a indústria, focando nos ganhos de eficiência e na otimização de processos internos.',
+          'Landing page desenvolvida para a loja de tênis LK Sneakers, focada em um design moderno e atrativo que impulsiona a experiência do usuário e aumenta as vendas.',
+      },
+      {
+        title: 'Finance Dash',
+        description:
+          'Sistema de controle financeiro para gerenciar suas finanças com eficiência.',
+        image: FinanceDashCaseImage,
+        longDescription:
+          'Sistema de controle financeiro desenvolvido para facilitar o gerenciamento de finanças pessoais e empresariais, com foco em usabilidade e relatórios detalhados.',
+      },
+      {
+        title: 'Mão na Roda',
+        description:
+          'Site de serviços que conecta clientes a profissionais qualificados.',
+        image: MaoNaRodaCaseImage,
+        longDescription:
+          'Plataforma online que conecta clientes a profissionais qualificados em diversas áreas de serviços, com interface intuitiva e sistema de avaliação.',
+      },
+      {
+        title: 'Burguer Pro',
+        description: 'Landing page para um curso de hambúrguer artesanal.',
+        image: BurguerCaseImage,
+        longDescription:
+          'Landing page criada para promover um curso de hambúrguer artesanal, destacando os diferenciais do curso e atraindo alunos interessados em gastronomia.',
+      },
+      {
+        title: 'Grow Solar',
+        description:
+          'Landing page de alta conversão para geração de leads em energia solar.',
+        image: GrowSolarCaseImage,
+        longDescription:
+          'Landing page otimizada para conversão, focada em atrair leads qualificados para soluções de energia solar, com design limpo e informações estratégicas.',
       },
     ],
     [],
@@ -207,40 +210,14 @@ const Cases = () => {
               disabled={!canScrollLeft}
               className="bg-primary text-primary-foreground hover:bg-primary/90 p-2 rounded-full shadow-md transition-colors disabled:opacity-50 cursor-pointer disabled:cursor-default"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M15.75 19.5L8.25 12l7.5-7.5"
-                />
-              </svg>
+              <MoveLeft />
             </button>
             <button
               onClick={scrollRight}
               disabled={!canScrollRight}
               className="bg-primary text-primary-foreground hover:bg-primary/90 p-2 rounded-full shadow-md transition-colors disabled:opacity-50 cursor-pointer disabled:cursor-default"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                />
-              </svg>
+              <MoveRight />
             </button>
           </div>
         </div>
