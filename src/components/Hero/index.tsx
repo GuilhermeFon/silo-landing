@@ -6,7 +6,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-background/95 z-0" />
 
       {/* Animated Logo */}
-      <div className="flex items-center justify-center z-10 sm:h-[55vh] px-6 sm:px-20 mt-15 sm:mt-0">
+      <div className="flex items-center justify-center z-10 sm:h-[55vh] px-6 sm:px-20 mt-15 sm:mt-0 lg:mt-5">
         <svg
           width="100%"
           height="auto"
@@ -60,7 +60,7 @@ const Hero = () => {
 
       <div className="container mx-auto px-4 z-10">
         <div className="mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl leading-normal font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60 mt-10">
+          <h1 className="text-4xl md:text-6xl leading-normal font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/60 mt-10 lg:mt-20">
             Transforme sua Presença Digital
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground mb-8">

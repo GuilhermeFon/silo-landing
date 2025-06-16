@@ -17,6 +17,7 @@ interface CaseItem {
   description: string;
   image: string | StaticImageData;
   longDescription?: string;
+  link?: string;
 }
 
 const Cases = () => {
@@ -29,6 +30,7 @@ const Cases = () => {
         image: LkSneakersCaseImage,
         longDescription:
           'Landing page desenvolvida para a loja de tênis LK Sneakers, focada em um design moderno e atrativo que impulsiona a experiência do usuário e aumenta as vendas.',
+        link: 'https://page.lksneakers.com/',
       },
       {
         title: 'Finance Dash',
@@ -37,6 +39,7 @@ const Cases = () => {
         image: FinanceDashCaseImage,
         longDescription:
           'Sistema de controle financeiro desenvolvido para facilitar o gerenciamento de finanças pessoais e empresariais, com foco em usabilidade e relatórios detalhados.',
+        link: '/cases/finance-dash',
       },
       {
         title: 'Mão na Roda',
@@ -45,6 +48,7 @@ const Cases = () => {
         image: MaoNaRodaCaseImage,
         longDescription:
           'Plataforma online que conecta clientes a profissionais qualificados em diversas áreas de serviços, com interface intuitiva e sistema de avaliação.',
+        link: '/cases/mao-na-roda',
       },
       {
         title: 'Burguer Pro',
@@ -52,6 +56,7 @@ const Cases = () => {
         image: BurguerCaseImage,
         longDescription:
           'Landing page criada para promover um curso de hambúrguer artesanal, destacando os diferenciais do curso e atraindo alunos interessados em gastronomia.',
+        link: '/cases/burguer-pro',
       },
       {
         title: 'Grow Solar',
@@ -60,6 +65,7 @@ const Cases = () => {
         image: GrowSolarCaseImage,
         longDescription:
           'Landing page otimizada para conversão, focada em atrair leads qualificados para soluções de energia solar, com design limpo e informações estratégicas.',
+        link: '/cases/grow-solar',
       },
     ],
     [],
