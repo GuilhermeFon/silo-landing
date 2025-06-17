@@ -39,7 +39,7 @@ const Cases = () => {
         image: FinanceDashCaseImage,
         longDescription:
           'Sistema de controle financeiro desenvolvido para facilitar o gerenciamento de finanças pessoais e empresariais, com foco em usabilidade e relatórios detalhados.',
-        link: '/cases/finance-dash',
+        link: 'https://front-finance-dash.netlify.app/',
       },
       {
         title: 'Mão na Roda',
@@ -48,7 +48,7 @@ const Cases = () => {
         image: MaoNaRodaCaseImage,
         longDescription:
           'Plataforma online que conecta clientes a profissionais qualificados em diversas áreas de serviços, com interface intuitiva e sistema de avaliação.',
-        link: '/cases/mao-na-roda',
+        link: 'https://front-mao-na-roda.vercel.app/',
       },
       {
         title: 'Burguer Pro',
@@ -56,7 +56,7 @@ const Cases = () => {
         image: BurguerCaseImage,
         longDescription:
           'Landing page criada para promover um curso de hambúrguer artesanal, destacando os diferenciais do curso e atraindo alunos interessados em gastronomia.',
-        link: '/cases/burguer-pro',
+        link: 'https://burguer-landing.vercel.app/',
       },
       {
         title: 'Grow Solar',
@@ -65,7 +65,7 @@ const Cases = () => {
         image: GrowSolarCaseImage,
         longDescription:
           'Landing page otimizada para conversão, focada em atrair leads qualificados para soluções de energia solar, com design limpo e informações estratégicas.',
-        link: '/cases/grow-solar',
+        link: 'https://planoestrategico.growsolar.com.br/',
       },
     ],
     [],

@@ -66,24 +66,24 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, caseData }) => {
                 breve.
               </p>
             )}
-            {caseData.link ? (
-              <a
-                href={caseData.link}
-                className="mt-6 bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-lg transition-colors float-end cursor-pointer"
+            <div className="flex justify-between items-end mt-10">
+              {caseData.link && (
+                <a
+                  className="text-primary underline lg:no-underline hover:underline cursor-pointer"
+                  href={caseData.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Visualizar Projeto
+                </a>
+              )}
+              <button
+                onClick={onClose}
+                className="bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-lg transition-colors cursor-pointer"
               >
-                Ver mais detalhes
-              </a>
-            ) : (
-              <p className="text-foreground mt-6">
-                Link para este case ainda não está disponível.
-              </p>
-            )}
-            <button
-              onClick={onClose}
-              className="mt-6 bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-lg transition-colors float-end cursor-pointer"
-            >
-              Fechar
-            </button>
+                Fechar
+              </button>
+            </div>
           </motion.div>
         </motion.div>
       )}
