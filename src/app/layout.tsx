@@ -6,6 +6,8 @@ import Providers from './providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
+const appUrl = process.env.NEXT_PUBLIC_APP_URL as string;
+
 export const metadata: Metadata = {
   title: 'SILO Agência de Produção Digital | Transformando Presença Digital',
   description:
@@ -32,9 +34,11 @@ export const metadata: Metadata = {
       url: '/apple-touch-icon.png',
     },
   ],
+  manifest: '/site.webmanifest',
   alternates: {
     canonical: '/',
   },
+  metadataBase: new URL(`${appUrl}`),
 };
 
 export default function RootLayout({
