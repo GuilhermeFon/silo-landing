@@ -7,9 +7,17 @@ import { Textarea } from '../../ui/textarea';
 
 const Form = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [status, setStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true);
+    setStatus({ type: null, message: '' });
+
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
 
@@ -17,11 +25,42 @@ const Form = () => {
     const email = formData.get('email') as string;
     const message = formData.get('message') as string;
 
-    const subject = `Contato via Site - ${name}`;
-    const body = `Nome: ${name}\nE-mail: ${email}\n\nMensagem:\n${message}`;
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email, message }),
+      });
 
-    const mailtoLink = `mailto:contato@studiosilo.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoLink;
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus({
+          type: 'success',
+          message:
+            'Mensagem enviada com sucesso! Entraremos em contato em breve.',
+        });
+        form.reset();
+        setTimeout(() => {
+          setIsVisible(false);
+          setStatus({ type: null, message: '' });
+        }, 3000);
+      } else {
+        setStatus({
+          type: 'error',
+          message: data.error || 'Erro ao enviar mensagem. Tente novamente.',
+        });
+      }
+    } catch {
+      setStatus({
+        type: 'error',
+        message: 'Erro de conexão. Verifique sua internet e tente novamente.',
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -34,19 +73,49 @@ const Form = () => {
           Entre em Contato
         </Button>
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <Input name="name" placeholder="Nome" required />
-          <Input name="email" type="email" placeholder="E-mail" required />
-          <Textarea
-            name="message"
-            placeholder="Mensagem"
-            required
-            className="min-h-[100px]"
-          />
-          <Button type="submit" className="w-full cursor-pointer">
-            Enviar Mensagem
-          </Button>
-        </form>
+        <div>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <Input
+              name="name"
+              placeholder="Nome"
+              required
+              disabled={isLoading}
+            />
+            <Input
+              name="email"
+              type="email"
+              placeholder="E-mail"
+              required
+              disabled={isLoading}
+            />
+            <Textarea
+              name="message"
+              placeholder="Mensagem"
+              required
+              className="min-h-[100px]"
+              disabled={isLoading}
+            />
+            <Button
+              type="submit"
+              className="w-full cursor-pointer"
+              disabled={isLoading}
+            >
+              {isLoading ? 'Enviando...' : 'Enviar Mensagem'}
+            </Button>
+          </form>
+
+          {status.type && (
+            <div
+              className={`mt-4 p-4 rounded-lg ${
+                status.type === 'success'
+                  ? 'bg-green-100 text-green-800 border border-green-300'
+                  : 'bg-red-100 text-red-800 border border-red-300'
+              }`}
+            >
+              {status.message}
+            </div>
+          )}
+        </div>
       )}
     </div>
   );
