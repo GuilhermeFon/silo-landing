@@ -6,33 +6,22 @@ import { Input } from '../../ui/input';
 import { Textarea } from '../../ui/textarea';
 
 const Form = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const form = e.target as HTMLFormElement;
     const formData = new FormData(form);
 
-    try {
-      const response = await fetch('https://formspree.io/f/xblgaloy', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          Accept: 'application/json',
-        },
-      });
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const message = formData.get('message') as string;
 
-      if (response.ok) {
-        setIsSubmitted(true);
-        form.reset();
-        setTimeout(() => setIsSubmitted(false), 3000);
-      } else {
-        alert('Erro ao enviar o formulário. Tente novamente.');
-      }
-    } catch {
-      alert('Erro ao enviar o formulário. Tente novamente.');
-    }
+    const subject = `Contato via Site - ${name}`;
+    const body = `Nome: ${name}\nE-mail: ${email}\n\nMensagem:\n${message}`;
+
+    const mailtoLink = `mailto:contato@studiosilo.com.br?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
   };
 
   return (
@@ -55,7 +44,7 @@ const Form = () => {
             className="min-h-[100px]"
           />
           <Button type="submit" className="w-full cursor-pointer">
-            {isSubmitted ? 'Mensagem enviada com sucesso!' : 'Enviar Mensagem'}
+            Enviar Mensagem
           </Button>
         </form>
       )}
